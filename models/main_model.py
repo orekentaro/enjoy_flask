@@ -8,7 +8,6 @@ class MainModel(BaseModel):
     """ログイン画面表示"""
     return render_template('main/login.html')
 
-  
   def login_check(self):
     email = request.form['email']
     password = request.form['password']
@@ -26,10 +25,10 @@ class MainModel(BaseModel):
 
     if password_result is None:
       """メールアドレスが登録されていない場合"""
-      
-      return render_template('main/login.html', email_messes='メールが登録されていません')
-      
-      
-    
+      return render_template('main/login.html', mail_messege='メールアドレスが登録されていません。')
 
-    return 'Hello'
+    if password_result['password'] != password:
+      """パスワードが違う場合"""
+      return render_template('main/login.html', password_messege='パスワードが間違っています。')
+
+    return 'OK'

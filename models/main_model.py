@@ -7,3 +7,29 @@ class MainModel(BaseModel):
   def login(self):
     """ログイン画面表示"""
     return render_template('main/login.html')
+
+  
+  def login_check(self):
+    email = request.form['email']
+    password = request.form['password']
+
+    with self.start_transaction() as tx:
+      sql = """
+            SELECT
+              password
+            FROM
+              admin_user
+            WHERE
+              email=%s
+            """
+      password_result = tx.find_one(sql, [email])
+
+    if password_result is None:
+      """メールアドレスが登録されていない場合"""
+      
+      return render_template('main/login.html', email_messes='メールが登録されていません')
+      
+      
+    
+
+    return 'Hello'

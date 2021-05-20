@@ -11,7 +11,7 @@
       <div class="container">
         <h1>Welcome</h1>
         
-        <form class="form" method="POST" action="{{url_fro('main_route.login_check')}}">
+        <form class="form" method="POST" action="{{url_for('main_route.login_check')}}">
           <input type="text" placeholder="UserEmail" name="email">
           <input type="password" placeholder="Password" name="password">
           <button type="submit" id="login-button">Login</button>

@@ -25,10 +25,11 @@ class MainModel(BaseModel):
 
     if password_result is None:
       """メールアドレスが登録されていない場合"""
-      return render_template('main/login.html', mail_messege='メールアドレスが登録されていません。')
+      flash("アドレスが登録されていません。")
+      return redirect('main_route.login')
 
     if password_result['password'] != password:
       """パスワードが違う場合"""
-      return render_template('main/login.html', password_messege='パスワードが間違っています。')
-
-    return 'OK'
+      flash("パスワードが間違っています")
+      return redirect('main_route.login')
+    return render_template('main/top_page.html')

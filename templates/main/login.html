@@ -9,11 +9,15 @@
     <div class="wrapper">
       <div class="container">
         <h1>Welcome</h1>
-        
+        {%  with messages = get_flashed_messages(with_categories=false) %}
+        {% if messages %}
+        {% for message in messages %}
+        <h6 class="error_messege"> {{message}}</h6>
+        {% endfor %}
+        {% endif %}
+        {% endwith %}
         <form class="form" method="POST" action="{{url_for('main_route.login_check')}}">
-          <h6 class="error_messege"> {{mail_messege}}</h6>
           <input type="text" placeholder="UserEmail" name="email" required>
-          <h6 class="error_messege"> {{password_messege}}</h6>
           <input type="password" placeholder="Password" name="password" required>
           <button type="submit" id="login-button">Login</button>
         </form>

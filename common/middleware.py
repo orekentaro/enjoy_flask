@@ -20,5 +20,5 @@ def before_request():
       Response | None: ログインしていない状態での画面遷移は行えないようにする
   """
   if request.endpoint not in NOT_REQUIRED_LOGIN and 'login_user' not in session:
-    flash("ログイン有効期限切れです。", "alert-danger")
+    # flash("ログイン有効期限切れです。")
     return redirect(url_for('main_route.login'))

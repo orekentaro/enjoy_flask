@@ -32,4 +32,7 @@ class MainModel(BaseModel):
       """パスワードが違う場合"""
       flash("パスワードが間違っています")
       return redirect('main_route.login')
-    return render_template('main/index2.html')
+    return redirect(url_for('main_route.top_page'))
+
+  def top_page(self):
+    return render_template('main/top_page.html')

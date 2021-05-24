@@ -1,5 +1,6 @@
 from flask import Flask
 from route.main_route import main_route
+from route.company_route import company_route
 from datetime import timedelta
 
 app = Flask(__name__, static_url_path='/enjoy_flask/static')
@@ -7,7 +8,7 @@ app.secret_key = 'hogehoge'  # セッションが動かなかったんで仮で�
 
 
 app.register_blueprint(main_route)
-
+app.register_blueprint(company_route)
 
 app.permanent_session_lifetime = timedelta(minutes=120)
 

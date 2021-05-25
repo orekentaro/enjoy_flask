@@ -16,7 +16,7 @@
           </div>
           <!-- /.card-header -->
           <!-- form start -->
-          <form id="quickForm">
+          <form id="quickForm" action="{{url_for('company_route.create_clients_complete')}}" method="POST">
             <div class="card-body">
               <div class="form-group">
                 <label for="company_name">会社名</label>
@@ -41,7 +41,7 @@
             </div>
             <!-- /.card-body -->
             <div class="card-footer">
-              <button type="submit" class="btn btn-primary">Submit</button>
+              <button type="submit" class="btn btn-primary">登録</button>
             </div>
           </form>
         </div>
@@ -66,17 +66,18 @@
   $(function () {
     
     
-    $.validator.setDefaults({
-      submitHandler: function () {
-        alert( "Form successful submitted!" );
-      }
-    });
+    
     $.validator.addMethod('phone',
     function(value, element) {
       return this.optional(element) || /^\d{11}$|^\d{3}-\d{4}-\d{4}$/.test(value);
     },
     '入力された電話番号が不正です。'
     );
+
+    $.validator.addMethod("zip", function(value, element) {
+  return this.optional( element ) || /^\d{3}-?\d{4}$/.test( value );
+  }, '入力された郵便番号が不正です。');
+
     $('#quickForm').validate({
       rules: {
         name: {
@@ -84,6 +85,7 @@
         },
         zip: {
           required: true,
+          zip: true
         },
         address: {
           required: true,

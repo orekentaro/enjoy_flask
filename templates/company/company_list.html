@@ -22,7 +22,9 @@
         <div class="card">
           <div class="card-header">
             <h3 class="card-title">
-            
+              <a href="{{url_for('company_route.create_clients')}}">
+                <button type="button" class="btn btn-block btn-primary">新規登録</button>
+              </a>
             </h3>
           </div>
           <!-- /.card-header -->
@@ -88,6 +90,11 @@
 <script src="{{url_for('static', filename='admin_lte3/plugins/datatables-buttons/js/buttons.colVis.min.js') }}"></script>
 <script>
   $(function () {
+    $("#example1").DataTable({
+    "responsive": true, "lengthChange": false, "autoWidth": false,
+    "buttons": ["copy", "csv", "excel", "pdf", "print", "colvis"]
+    }).buttons().container().appendTo('#example1_wrapper .col-md-6:eq(0)');
+
     $('#example2').DataTable({
       "paging": true,
       "lengthChange": false,

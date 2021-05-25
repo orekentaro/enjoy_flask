@@ -19,6 +19,8 @@ class CompanyModel(BaseModel):
               status='0'
             """
       companys = tx.find_all(sql)
-
-      print(companys)
     return render_template('company/company_list.html', company='取引先', companys=companys)
+
+
+  def create_clients(self):
+    return render_template('company/company_edit.html', clients=True)

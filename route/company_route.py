@@ -12,3 +12,9 @@ def clients_list():
   """
   return CompanyModel.clients_list()
 
+@company_route.route('/create_clients', methods=['GET'])
+def create_clients():
+  """
+  取引先追加画面
+  """
+  return CompanyModel.create_clients()

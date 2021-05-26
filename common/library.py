@@ -3,6 +3,11 @@ from flask import request, session
 import datetime
 
 def company_list(company):
+  """
+    自社、取引先、仕入れ先の一覧を表示するmethod
+    引数company(string)に”own_company”, ”clients”, ”supplier”
+    のうちいずれか一つを入れる。
+  """
   with BaseModel().start_transaction() as tx:
     sql = f"""
       SELECT
@@ -23,6 +28,11 @@ def company_list(company):
 
 
 def company_insert(company):
+  """
+    自社、取引先、仕入れ先の追加をするmethod
+    引数company(string)に”own_company”, ”clients”, ”supplier”
+    のうちいずれか一つを入れる。
+  """
   name = request.form['name']
   zip = request.form['zip']
   address = request.form['address']

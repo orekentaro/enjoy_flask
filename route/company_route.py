@@ -50,20 +50,20 @@ def create_supplier_complete():
 @company_route.route('/own_company_list')
 def own_company_list():
   """
-  仕入れ先一覧表示
+  自社一覧表示
   """
   return CompanyModel.own_company_list()
 
 @company_route.route('/create_own_company', methods=['GET'])
 def create_own_company():
   """
-  仕入れ先追加画面
+  自社追加画面
   """
   return CompanyModel.create_own_company()
 
 @company_route.route('/create_own_company', methods=['POST'])
 def create_own_company_complete():
   """
-  仕入れ先追加処理
+  自社追加処理
   """
   return CompanyModel.create_own_company_complete()

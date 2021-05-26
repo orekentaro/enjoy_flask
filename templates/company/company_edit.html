@@ -16,7 +16,13 @@
           </div>
           <!-- /.card-header -->
           <!-- form start -->
+          {% if clients %}
           <form id="quickForm" action="{{url_for('company_route.create_clients_complete')}}" method="POST">
+          {% elif supplier %}
+          <form id="quickForm" action="{{url_for('company_route.create_supplier_complete')}}" method="POST">
+          {% elif own_company %}
+          <form id="quickForm" action="{{url_for('company_route.create_own_company_complete')}}" method="POST">
+          {% endif %}
             <div class="card-body">
               <div class="form-group">
                 <label for="company_name">会社名</label>

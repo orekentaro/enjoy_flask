@@ -22,7 +22,13 @@
         <div class="card">
           <div class="card-header">
             <h3 class="card-title">
+              {% if clients %}
               <a href="{{url_for('company_route.create_clients')}}">
+              {% elif supplier %}
+              <a href="{{url_for('company_route.create_supplier')}}">
+              {% elif own_company %}
+              <a href="{{url_for('company_route.create_own_company')}}">
+              {% endif %}
                 <button type="button" class="btn btn-block btn-primary">新規登録</button>
               </a>
             </h3>

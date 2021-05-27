@@ -67,3 +67,24 @@ def create_own_company_complete():
   自社追加処理
   """
   return CompanyModel.create_own_company_complete()
+
+@company_route.route('/edit_clients/<id>', methods=['GET'])
+def edit_clients(id):
+  """
+  取引先編集画面
+  """
+  return CompanyModel.edit_clients(id)
+
+@company_route.route('/edit_supplier/<id>', methods=['GET'])
+def edit_supplier(id):
+  """
+  仕入れ先編集画面
+  """
+  return CompanyModel.edit_supplier(id)
+
+@company_route.route('/edit_own_company/<id>', methods=['GET'])
+def edit_own_company(id):
+  """
+  自社編集画面
+  """
+  return CompanyModel.edit_own_company(id)

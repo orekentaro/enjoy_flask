@@ -11,19 +11,17 @@ class CompanyModel(BaseModel):
     companys = company_list('clients')
     return render_template('company/company_list.html', company='取引先', companys=companys, clients=True)
 
-
   def create_clients(self):
     """
     取引先新規追加画面
     """
-    return render_template('company/company_edit.html', clients=True)
+    return render_template('company/company_edit.html',company='取引先', add=True, clients=True)
 
   def create_clients_complete(self):
     """
     取引先新規追加処理
     """
     company_insert('clients')
-    
     flash(f"登録が完了しました。", "alert-success")
     return redirect(url_for('company_route.clients_list'))
 
@@ -38,7 +36,7 @@ class CompanyModel(BaseModel):
     """
     仕入れ先新規追加画面
     """
-    return render_template('company/company_edit.html', supplier=True)
+    return render_template('company/company_edit.html',company='仕入れ先', add=True, supplier=True)
 
   def create_supplier_complete(self):
     """
@@ -59,7 +57,7 @@ class CompanyModel(BaseModel):
     """
     自社新規追加画面
     """
-    return render_template('company/company_edit.html', own_company=True)
+    return render_template('company/company_edit.html', company='自社', add=True, own_company=True)
 
   def create_own_company_complete(self):
     """
@@ -68,3 +66,21 @@ class CompanyModel(BaseModel):
     company_insert('own_company')
     flash(f"登録が完了しました。", "alert-success")
     return redirect(url_for('company_route.own_company_list'))
+
+  def edit_clients(self, id):
+    """
+    取引先編集画面
+    """
+    return 'hello'
+  
+  def edit_supplier(self, id):
+    """
+    仕入れ先編集画面
+    """
+    return 'hello'
+  
+  def edit_own_company(self, id):
+    """
+    自社編集画面
+    """
+    return 'hello'

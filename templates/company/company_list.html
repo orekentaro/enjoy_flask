@@ -38,6 +38,7 @@
             <table id="example1" class="table table-bordered table-striped">
               <thead>
               <tr>
+                <th></th>
                 <th>会社名</th>
                 <th>郵便番号</th>
                 <th>住所</th>
@@ -48,6 +49,18 @@
               <tbody>
               {% for company in companys %}
               <tr>
+                <td>
+                {% if clients %}
+                  <a href="{{url_for('company_route.edit_clients', id=company['clients_id'])}}">
+                {% elif supplier %}
+                  <a href="{{url_for('company_route.edit_supplier', id=company['supplier_id'])}}">
+                {% elif own_company %}
+                  <a href="{{url_for('company_route.edit_own_company', id=company['own_company_id'])}}">
+                {% endif %}
+                    <button type="button" class="btn btn-block btn-primary">編集</button>
+                  </a>
+                
+                </td>
                 <td>{{company['name']}}</td>
                 <td>{{company['zip']}}</td>
                 <td>{{company['address']}}</td>
@@ -58,6 +71,7 @@
               </tbody>
               <tfoot>
               <tr>
+                <th></th>
                 <th>会社名</th>
                 <th>郵便番号</th>
                 <th>住所</th>

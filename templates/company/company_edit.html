@@ -12,16 +12,27 @@
         <!-- jquery validation -->
         <div class="card card-primary">
           <div class="card-header">
-            <h3 class="card-title">Quick Example <small>jQuery Validation</small></h3>
+            <h3 class="card-title">{{company}} 追加画面</h3>
           </div>
           <!-- /.card-header -->
           <!-- form start -->
-          {% if clients %}
-          <form id="quickForm" action="{{url_for('company_route.create_clients_complete')}}" method="POST">
-          {% elif supplier %}
-          <form id="quickForm" action="{{url_for('company_route.create_supplier_complete')}}" method="POST">
-          {% elif own_company %}
-          <form id="quickForm" action="{{url_for('company_route.create_own_company_complete')}}" method="POST">
+          {% if add %}
+            {% if clients %}
+            <form id="quickForm" action="{{url_for('company_route.create_clients_complete')}}" method="POST">
+            {% elif supplier %}
+            <form id="quickForm" action="{{url_for('company_route.create_supplier_complete')}}" method="POST">
+            {% elif own_company %}
+            <form id="quickForm" action="{{url_for('company_route.create_own_company_complete')}}" method="POST">
+            {% endif %}
+          {% endif %}
+          {% if edit %}
+            {% if clients %}
+            <form id="quickForm" action="{{url_for('company_route.edit_clients_complete')}}" method="POST">
+            {% elif supplier %}
+            <form id="quickForm" action="{{url_for('company_route.edit_supplier_complete')}}" method="POST">
+            {% elif own_company %}
+            <form id="quickForm" action="{{url_for('company_route.edit_own_company_complete')}}" method="POST">
+            {% endif %}
           {% endif %}
             <div class="card-body">
               <div class="form-group">

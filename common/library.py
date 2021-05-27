@@ -75,3 +75,20 @@ def company_insert(company):
     ]
 
     tx.save(sql, insert_index)
+
+def company_select(company, id):
+  with BaseModel().start_transaction(False) as tx:
+    sql=f'''
+        SELECT
+          name,
+          zip,
+          address,
+          email,
+          phone
+        FROM
+          {company}
+        WHERE
+          {company}_id = %s
+        '''
+    company = tx.find_one(sql, [id])
+  return company

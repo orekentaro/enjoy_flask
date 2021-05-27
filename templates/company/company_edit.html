@@ -12,10 +12,15 @@
         <!-- jquery validation -->
         <div class="card card-primary">
           <div class="card-header">
+            {% if add %}
             <h3 class="card-title">{{company}} 追加画面</h3>
+            {% elif edit %}
+            <h3 class="card-title">{{company}} 編集画面</h3>
+            {% endif %}
           </div>
           <!-- /.card-header -->
           <!-- form start -->
+          {#
           {% if add %}
             {% if clients %}
             <form id="quickForm" action="{{url_for('company_route.create_clients_complete')}}" method="POST">
@@ -34,26 +39,27 @@
             <form id="quickForm" action="{{url_for('company_route.edit_own_company_complete')}}" method="POST">
             {% endif %}
           {% endif %}
+          #}
             <div class="card-body">
               <div class="form-group">
                 <label for="company_name">会社名</label>
-                <input type="text" name="name" class="form-control" id="company_name" placeholder="会社名">
+                <input type="text" name="name" class="form-control" id="company_name" placeholder="会社名" {% if not add %} value="{{this_company['name']}} " {% endif %}>　
               </div>
               <div class="form-group">
                 <label for="company_zip">郵便番号</label>
-                <input type="text" name="zip" class="form-control" id="company_zip" placeholder="郵便番号">
+                <input type="text" name="zip" class="form-control" id="company_zip" placeholder="郵便番号" {% if not add %}value="{{this_company['zip']}} " {% endif %}>
               </div>
               <div class="form-group">
                 <label for="company_address">住所</label>
-                <input type="text" name="address" class="form-control" id="company_address" placeholder="住所">
+                <input type="text" name="address" class="form-control" id="company_address" placeholder="住所" {% if not add %}value="{{this_company['address']}} " {% endif %}>
               </div>
               <div class="form-group">
                 <label for="company_phone">電話番号</label>
-                <input type="tel" name="phone" class="form-control" id="company_phone" placeholder="電話番号">
+                <input type="tel" name="phone" class="form-control" id="company_phone" placeholder="電話番号" {% if not add %}value="{{this_company['phone']}} " {% endif %}>
               </div>
               <div class="form-group">
                 <label for="company_email">メールアドレス</label>
-                <input type="email" name="email" class="form-control" id="company_email" placeholder="メールアドレス">
+                <input type="email" name="email" class="form-control" id="company_email" placeholder="メールアドレス" {% if not add %}value="{{this_company['email']}} " {% endif %}>
               </div>
             </div>
             <!-- /.card-body -->

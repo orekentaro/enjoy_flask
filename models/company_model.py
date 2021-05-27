@@ -1,7 +1,7 @@
 from models.base_model import BaseModel
 from flask import render_template, request, flash, redirect, session, url_for, jsonify
 import datetime
-from common.library import company_insert, company_list
+from common.library import company_insert, company_list, company_select
 
 class CompanyModel(BaseModel):
   def clients_list(self):
@@ -71,16 +71,19 @@ class CompanyModel(BaseModel):
     """
     取引先編集画面
     """
-    return 'hello'
+    this_company = company_select('clients', id)
+    return render_template('company/company_edit.html', clients=True, edit=True, company='取引先', this_company=this_company)
   
   def edit_supplier(self, id):
     """
     仕入れ先編集画面
     """
-    return 'hello'
+    this_company = company_select('supplier', id)
+    return render_template('company/company_edit.html', supplier=True, edit=True, company='仕入れ先', this_company=this_company)
   
   def edit_own_company(self, id):
     """
     自社編集画面
     """
-    return 'hello'
+    this_company = company_select('own_company', id)
+    return render_template('company/company_edit.html', own_company=True, edit=True, company='取引先', this_company=this_company)

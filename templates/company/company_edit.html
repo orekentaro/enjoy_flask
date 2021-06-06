@@ -33,9 +33,9 @@
             {% if clients %}
             <form id="quickForm" action="{{url_for('company_route.edit_clients_complete', id=this_company['clients_id'])}}" method="POST">
             {% elif supplier %}
-            <form id="quickForm" action="{{url_for('company_route.edit_supplier_complete')}}" method="POST">
+            <form id="quickForm" action="{{url_for('company_route.edit_supplier_complete', id=this_company['supplier_id'])}}" method="POST">
             {% elif own_company %}
-            <form id="quickForm" action="{{url_for('company_route.edit_own_company_complete')}}" method="POST">
+            <form id="quickForm" action="{{url_for('company_route.edit_own_company_complete', id=this_company['own_company_id'])}}" method="POST">
             {% endif %}
           {% endif %}
             <div class="card-body">

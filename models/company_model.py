@@ -93,3 +93,15 @@ class CompanyModel(BaseModel):
 
     flash(f"登録が完了しました。", "alert-success")
     return redirect(url_for('company_route.clients_list'))
+
+  def edit_supplier_complete(self, id):
+    company_edit('supplier', id)
+
+    flash(f"登録が完了しました。", "alert-success")
+    return redirect(url_for('company_route.supplier_list'))
+  
+  def edit_own_company_complete(self, id):
+    company_edit('own_company', id)
+
+    flash(f"登録が完了しました。", "alert-success")
+    return redirect(url_for('company_route.own_company_list'))

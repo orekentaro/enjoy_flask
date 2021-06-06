@@ -92,6 +92,20 @@ def edit_own_company(id):
 @company_route.route('/edit_clients/<id>', methods=['POST'])
 def edit_clients_complete(id):
   """
-  取引先編集画面
+  取引先編集処理
   """
   return CompanyModel.edit_clients_complete(id)
+
+@company_route.route('/edit_supplier/<id>', methods=['POST'])
+def edit_supplier_complete(id):
+  """
+  仕入れ先編集処理
+  """
+  return CompanyModel.edit_supplier_complete(id)
+
+@company_route.route('/edit_own_company/<id>', methods=['POST'])
+def edit_own_company_complete(id):
+  """
+  自社先編集処理
+  """
+  return CompanyModel.edit_own_company_complete(id)

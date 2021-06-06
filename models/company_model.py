@@ -1,7 +1,7 @@
 from models.base_model import BaseModel
 from flask import render_template, request, flash, redirect, session, url_for, jsonify
 import datetime
-from common.library import company_insert, company_list, company_select
+from common.library import company_insert, company_list, company_select, company_edit
 
 class CompanyModel(BaseModel):
   def clients_list(self):
@@ -87,3 +87,9 @@ class CompanyModel(BaseModel):
     """
     this_company = company_select('own_company', id)
     return render_template('company/company_edit.html', own_company=True, edit=True, company='取引先', this_company=this_company)
+
+  def edit_clients_complete(self, id):
+    company_edit('clients', id)
+
+    flash(f"登録が完了しました。", "alert-success")
+    return redirect(url_for('company_route.clients_list'))

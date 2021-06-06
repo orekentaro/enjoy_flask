@@ -77,9 +77,10 @@ def company_insert(company):
     tx.save(sql, insert_index)
 
 def company_select(company, id):
-  with BaseModel().start_transaction(False) as tx:
+  with BaseModel().start_transaction() as tx:
     sql=f'''
         SELECT
+          {company}_id,
           name,
           zip,
           address,
@@ -92,3 +93,38 @@ def company_select(company, id):
         '''
     company = tx.find_one(sql, [id])
   return company
+
+def company_edit(company, id):
+  name = request.form['name']
+  zip = request.form['zip']
+  address = request.form['address']
+  phone = request.form['phone']
+  email = request.form['email']
+
+  with BaseModel().start_transaction(False) as tx:
+    sql=f'''
+          UPDATE
+            {company}
+          SET
+            name=%s,
+            zip=%s,
+            address=%s,
+            phone=%s,
+            email=%s,
+            updated_id=%s,
+            updated_at=%s
+          WHERE
+            {company}_id=%s
+        '''
+
+    update_index = [
+      name,
+      zip,
+      address,
+      phone,
+      email,
+      session['user_id'],
+      datetime.datetime.now(),
+      id
+    ]
+    tx.save(sql, update_index)

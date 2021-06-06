@@ -20,7 +20,6 @@
           </div>
           <!-- /.card-header -->
           <!-- form start -->
-          {#
           {% if add %}
             {% if clients %}
             <form id="quickForm" action="{{url_for('company_route.create_clients_complete')}}" method="POST">
@@ -32,14 +31,13 @@
           {% endif %}
           {% if edit %}
             {% if clients %}
-            <form id="quickForm" action="{{url_for('company_route.edit_clients_complete')}}" method="POST">
+            <form id="quickForm" action="{{url_for('company_route.edit_clients_complete', id=this_company['clients_id'])}}" method="POST">
             {% elif supplier %}
             <form id="quickForm" action="{{url_for('company_route.edit_supplier_complete')}}" method="POST">
             {% elif own_company %}
             <form id="quickForm" action="{{url_for('company_route.edit_own_company_complete')}}" method="POST">
             {% endif %}
           {% endif %}
-          #}
             <div class="card-body">
               <div class="form-group">
                 <label for="company_name">会社名</label>
@@ -90,16 +88,16 @@
     
     
     
-    $.validator.addMethod('phone',
-    function(value, element) {
-      return this.optional(element) || /^\d{11}$|^\d{3}-\d{4}-\d{4}$/.test(value);
-    },
-    '入力された電話番号が不正です。'
-    );
+  //   $.validator.addMethod('phone',
+  //   function(value, element) {
+  //     return this.optional(element) || /^\d{11}$|^\d{3}-\d{4}-\d{4}$/.test(value);
+  //   },
+  //   '入力された電話番号が不正です。'
+  //   );
 
-    $.validator.addMethod("zip", function(value, element) {
-  return this.optional( element ) || /^\d{3}-?\d{4}$/.test( value );
-  }, '入力された郵便番号が不正です。');
+  //   $.validator.addMethod("zip", function(value, element) {
+  // return this.optional( element ) || /^\d{3}-?\d{4}$/.test( value );
+  // }, '入力された郵便番号が不正です。');
 
     $('#quickForm').validate({
       rules: {

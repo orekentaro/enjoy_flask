@@ -88,3 +88,10 @@ def edit_own_company(id):
   自社編集画面
   """
   return CompanyModel.edit_own_company(id)
+
+@company_route.route('/edit_clients/<id>', methods=['POST'])
+def edit_clients_complete(id):
+  """
+  取引先編集画面
+  """
+  return CompanyModel.edit_clients_complete(id)

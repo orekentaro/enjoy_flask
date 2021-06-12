@@ -43,7 +43,7 @@
               {% for product in products %}
               <tr>
                 <td>
-                  <a href="#">
+                  <a href="{{url_for('product_route.edit_product', id=product['product_id'])}}">
                     <button type="button" class="btn btn-block btn-primary">編集</button>
                   </a>
                 </td>

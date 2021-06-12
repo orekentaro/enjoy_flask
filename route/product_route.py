@@ -27,3 +27,20 @@ def create_product_complete():
   """
   return ProductModel.create_product_complete()
 
+
+@product_route.route('edit_product/<id>')
+def edit_product(id):
+  """
+  商品編集
+  """
+  return ProductModel.edit_product(id)
+
+@product_route.route('edit_product/<id>', methods=['POST'])
+def edit_product_complete(id):
+  """
+  商品編集
+  """
+  return ProductModel.edit_product_complete(id)
+
+
+

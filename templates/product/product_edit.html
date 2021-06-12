@@ -24,27 +24,27 @@
             <form id="quickForm" action="{{url_for('product_route.create_product_complete')}}" method="POST">
           {% endif %}
           {% if edit %}
-            <form id="quickForm" action="#" method="POST">
+            <form id="quickForm" action="{{url_for('product_route.edit_product_complete', id=product['product_id'])}}" method="POST">
           {% endif %}
             <div class="card-body">
               <div class="form-group">
                 <label for="name">商品名</label>
-                <input type="text" name="name" class="form-control" id="name" placeholder="商品名" {% if not add %} value="{{this_company['name']}} " {% endif %}>　
+                <input type="text" name="name" class="form-control" id="name" placeholder="商品名" {% if not add %} value="{{product['name']}} " {% endif %}>　
               </div>
               <div class="form-group">
                 <label for="cost_price">仕入値</label>
-                <input type="text" name="cost_price" class="form-control" id="cost_price" placeholder="仕入値" {% if not add %}value="{{this_company['zip']}} " {% endif %}>
+                <input type="text" name="cost_price" class="form-control" id="cost_price" placeholder="仕入値" {% if not add %}value="{{product['cost_price']}} " {% endif %}>
               </div>
               <div class="form-group">
                 <label for="selling_price">売値</label>
-                <input type="text" name="selling_price" class="form-control" id="selling_price" placeholder="売値" {% if not add %}value="{{this_company['selling_price']}} " {% endif %}>
+                <input type="text" name="selling_price" class="form-control" id="selling_price" placeholder="売値" {% if not add %}value="{{product['selling_price']}} " {% endif %}>
               </div>
               <div class="form-group">
                 <label for="supplier">仕入先</label>
                 <select name="supplier" class="custom-select rounded-0" id="supplier">
                   <option hidden value="">取引先を選択してください</option>
                   {% for supplier in suppliers %}
-                  <option value="{{supplier['supplier_id']}}">{{supplier['name']}}</option>
+                  <option value="{{supplier['supplier_id']}}" {%if supplier['supplier_id'] == product['supplier_id'] %} selected {% endif %}>{{supplier['name']}}</option>
                   {% endfor %}
                 </select>
               </div>

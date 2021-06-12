@@ -21,7 +21,7 @@
           <!-- /.card-header -->
           <!-- form start -->
           {% if add %}
-            <form id="quickForm" action="#" method="POST">
+            <form id="quickForm" action="{{url_for('product_route.create_product_complete')}}" method="POST">
           {% endif %}
           {% if edit %}
             <form id="quickForm" action="#" method="POST">
@@ -41,8 +41,11 @@
               </div>
               <div class="form-group">
                 <label for="supplier">仕入先</label>
-                <select class="custom-select rounded-0" id="exampleSelectRounded0">
-                  <option>Value 1</option>
+                <select name="supplier" class="custom-select rounded-0" id="supplier">
+                  <option hidden value="">取引先を選択してください</option>
+                  {% for supplier in suppliers %}
+                  <option value="{{supplier['supplier_id']}}">{{supplier['name']}}</option>
+                  {% endfor %}
                 </select>
               </div>
             </div>

@@ -20,3 +20,10 @@ def create_product():
   """
   return ProductModel.create_product()
 
+@product_route.route('create_product', methods=['POST'])
+def create_product_complete():
+  """
+  商品追加処理
+  """
+  return ProductModel.create_product_complete()
+

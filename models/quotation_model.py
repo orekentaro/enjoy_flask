@@ -18,3 +18,6 @@ class QuotationModel(BaseModel):
       quotations = tx.find_all(sql)
     
     return render_template('quotation/quotation_list.html', quotations=quotations)
+
+  def create_quotation(self):
+    return render_template('quotation/quotation.html', add=True)

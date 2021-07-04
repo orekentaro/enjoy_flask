@@ -38,7 +38,7 @@ def edit_product(id):
 @product_route.route('edit_product/<id>', methods=['POST'])
 def edit_product_complete(id):
   """
-  商品編集
+  商品編集処理
   """
   return ProductModel.edit_product_complete(id)
 

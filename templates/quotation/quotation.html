@@ -1,0 +1,260 @@
+{% extends "base.html" %}
+
+{% block css %}
+{% endblock %}
+
+{% block content %}
+<section class="content">
+  <div class="container-fluid">
+    <div class="row">
+      <!-- left column -->
+      <div class="col-md-12">
+        <!-- jquery validation -->
+        <div class="card card-primary">
+          <div class="card-header">
+            {% if add %}
+            <h3 class="card-title">見積書作成</h3>
+            {% elif edit %}
+            <h3 class="card-title">見積書編集</h3>
+            {% endif %}
+          </div>
+          <!-- /.card-header -->
+          <!-- form start -->
+          {% if add %}
+            <form id="quickForm" action="#" method="POST">
+          {% endif %}
+          {% if edit %}
+            <form id="quickForm" action="#" method="POST">
+          {% endif %}
+            <div class="card-body">
+              <div class="text-center">見積書</div>
+                <div class="form-group row">
+                  <div class="col-8"></div>
+                  <label class="col-sm-1 col-form-label">日付</label>
+                  <div class="input-group date col-sm-3" id="reservationdate" data-target-input="nearest">
+                    <input type="text" class="form-control datetimepicker-input" data-target="#reservationdate">
+                    <div class="input-group-append" data-target="#reservationdate" data-toggle="datetimepicker">
+                      <div class="input-group-text"><i class="fa fa-calendar"></i></div>
+                    </div>
+                  </div>
+                </div>
+                <div class="form-group row">
+                  <div class="input-group date col-sm-3" id="reservationdate" data-target-input="nearest">
+                    <select class="form-control">
+                      <option>会社 1</option>
+                      <option>会社 2</option>
+                      <option>会社 3</option>
+                    </select>
+                  </div>
+                  <label class="col-sm-1 col-form-label">御中</label>
+                  <div class="col-sm-4"></div>
+                  <div class="input-group date col-sm-4" id="reservationdate" data-target-input="nearest">
+                    自社 <br> 〒123−4567 <br>神奈川県横浜市南区永楽町1−1−1 <br> TEL:0120-888-888
+                  </div>
+                </div>
+                <div class="form-group row">
+                  <label class="col-sm-2 col-form-label">お見積金額</label>
+                  <div class="input-group col-sm-4" id="reservationdate" data-target-input="nearest">
+                    <input type="text" class="form-control">
+                  </div>
+                </div>
+              </div>
+              <div class="card-body">
+                <table class="table table-bordered">
+                  <thead>
+                    <tr>
+                      <th>品番・品名</th>
+                      <th>個数</th>
+                      <th>単価</th>
+                      <th>金額</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <th scope="row"></th>
+                      <td></td>
+                      <td></td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <th scope="row"></th>
+                      <td></td>
+                      <td></td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <th scope="row"></th>
+                      <td></td>
+                      <td></td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <th scope="row"></th>
+                      <td></td>
+                      <td></td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <th scope="row"></th>
+                      <td></td>
+                      <td></td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <th scope="row"></th>
+                      <td></td>
+                      <td></td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <th scope="row"></th>
+                      <td></td>
+                      <td></td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <th scope="row"></th>
+                      <td></td>
+                      <td></td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <th scope="row"></th>
+                      <td></td>
+                      <td></td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <th scope="row"></th>
+                      <td></td>
+                      <td></td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <th scope="row"></th>
+                      <td></td>
+                      <td></td>
+                      <td></td>
+                    </tr>
+                    <tr>
+                      <th scope="row"></th>
+                      <td></td>
+                      <td></td>
+                      <td></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              <div class="form-group row card-body">
+                <div class="col-8"></div>
+                <label class="col-sm-1 col-form-label">小計</label>
+                <div class="input-group col-sm-3" id="reservationdate" data-target-input="nearest">
+                  <input type="text" class="form-control">
+                </div>
+                <div class="col-8"></div>
+                <label class="col-sm-1 col-form-label">消費税</label>
+                <div class="input-group col-sm-3" id="reservationdate" data-target-input="nearest">
+                  <input type="text" class="form-control">
+                </div>
+                <div class="col-8"></div>
+                <label class="col-sm-1 col-form-label">合計金額</label>
+                <div class="input-group col-sm-3" id="reservationdate" data-target-input="nearest">
+                  <input type="text" class="form-control">
+                </div>
+              </div>
+              <div class="card-body">
+                <label>備考</label>
+                <textarea class="form-control" rows="3" ></textarea>
+              </div>
+            </div>
+            <!-- /.card-body -->
+            <div class="card-footer">
+              <button type="submit" class="btn btn-primary">登録</button>
+            </div>
+          </form>
+        </div>
+        <!-- /.card -->
+        </div>
+      <!--/.col (left) -->
+      <!-- right column -->
+      <div class="col-md-6">
+
+      </div>
+      <!--/.col (right) -->
+    </div>
+    <!-- /.row -->
+  </div><!-- /.container-fluid -->
+</section>
+{% endblock %}
+
+
+{% block script %}
+<script src="{{url_for('static', filename='admin_lte3/plugins/jquery-validation/jquery.validate.min.js') }}"></script>
+<script>
+  // $(function () {
+    
+    
+    
+  // //   $.validator.addMethod('supplier',
+  // //   function(value, element) {
+  // //     return this.optional(element) || /^\d{11}$|^\d{3}-\d{4}-\d{4}$/.test(value);
+  // //   },
+  // //   '入力された電話番号が不正です。'
+  // //   );
+
+  // //   $.validator.addMethod("zip", function(value, element) {
+  // // return this.optional( element ) || /^\d{3}-?\d{4}$/.test( value );
+  // // }, '入力された郵便番号が不正です。');
+
+  //   $('#quickForm').validate({
+  //     rules: {
+  //       name: {
+  //         required: true,
+  //       },
+  //       cost_price: {
+  //         required: true,
+  //         cost_price: true
+  //       },
+  //       selling_price: {
+  //         required: true,
+  //       },
+  //       supplier: {
+  //         required: true,
+  //         supplier: true
+  //       },
+  //       email: {
+  //         required: true,
+  //         email: true,
+  //       }
+  //     },
+  //     messages: {
+  //       name: {
+  //         required: "会社名を入力してください",
+  //       },cost_price: {
+  //         required: "郵便番号を入力してください",
+  //       },selling_price: {
+  //         required: "住所を入力してください",
+  //       },supplier: {
+  //         required: "電話番号を入力してください"
+  //       },
+  //       email: {
+  //         required: "メールアドレスを入力してください",
+  //         email: "入力されたメールアドレスが不正です。"
+  //       },
+  //       terms: "Please accept our terms"
+  //     },
+  //     errorElement: 'span',
+  //     errorPlacement: function (error, element) {
+  //       error.addClass('invalid-feedback');
+  //       element.closest('.form-group').append(error);
+  //     },
+  //     highlight: function (element, errorClass, validClass) {
+  //       $(element).addClass('is-invalid');
+  //     },
+  //     unhighlight: function (element, errorClass, validClass) {
+  //       $(element).removeClass('is-invalid');
+  //     }
+  //   });
+  // });
+  </script>
+{% endblock %}

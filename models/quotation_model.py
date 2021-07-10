@@ -4,7 +4,7 @@ import datetime
 
 class QuotationModel(BaseModel):
   def quotation_list(self):
-    with BaseModel().start_transaction() as tx:
+    with self.start_transaction() as tx:
       sql = f"""
         SELECT
           quotation_id,
@@ -20,4 +20,18 @@ class QuotationModel(BaseModel):
     return render_template('quotation/quotation_list.html', quotations=quotations)
 
   def create_quotation(self):
-    return render_template('quotation/quotation.html', add=True)
+    with self.start_transaction() as tx:
+      sql = f"""
+        SELECT
+          product_id,
+          name,
+          selling_price
+        FROM
+          product
+        WHERE
+          status='0'
+        """
+      products = tx.find_all(sql)
+
+    
+    return render_template('quotation/quotation.html', products=products, add=True)

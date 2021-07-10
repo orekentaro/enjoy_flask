@@ -32,7 +32,7 @@
                   <div class="col-8"></div>
                   <label class="col-sm-1 col-form-label">日付</label>
                   <div class="input-group date col-sm-3" id="reservationdate1" data-target-input="nearest">
-                  <input name="mousikomi_simekiri" type="text" class="form-control datetimepicker-input" data-target="#reservationdate1" {% if not add%}value="{{kouza['moushikomi_to']}}"{% endif %} {%if delete%}disabled{% endif %} required>
+                  <input name="mousikomi_simekiri" type="text" class="form-control datetimepicker-input" data-target="#reservationdate1">
                   <div class="input-group-append" data-target="#reservationdate1" data-toggle="datetimepicker">
                     <div class="input-group-text"><i class="fa fa-calendar"></i></div>
                   </div>
@@ -204,7 +204,7 @@
 <script src="{{url_for('static', filename='admin_lte3/plugins/moment/moment.min.js') }}"></script>
 <script src="{{url_for('static', filename='admin_lte3/plugins/daterangepicker/daterangepicker.js') }}"></script>
 <script src="{{url_for('static', filename='admin_lte3/plugins/jquery-validation/jquery.validate.min.js') }}"></script>
-<script src="{{url_for('static', filename='admin_lte3/dist/js/pages/dashboard.js') }}"></script>
+<script src="{{url_for('static', filename='admin_lte3/dist/js/pages/dashboard.js') }}"></script>z
 <script src="{{url_for('static', filename='admin_lte3/plugins/tempusdominus-bootstrap-4/js/tempusdominus-bootstrap-4.js') }}"></script>
 <!-- dropzonejs -->
 <script src="{{url_for('static', filename='admin_lte3/plugins/dropzone/min/dropzone.min.js') }}"></script>
@@ -216,7 +216,8 @@
   });
   $('#reservationdate1').datetimepicker({
     locale: 'ja',
-    format: 'yyyy/mm/dd'
+    language : 'ja',
+    format: 'YYYY/MM/DD'
   });
 });
 

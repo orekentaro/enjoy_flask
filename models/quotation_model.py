@@ -35,3 +35,19 @@ class QuotationModel(BaseModel):
 
     
     return render_template('quotation/quotation.html', products=products, add=True)
+
+  def get_price(self):
+    product_id = request.form['product_id']
+    
+    with self.start_transaction() as tx:
+      sql = f"""
+        SELECT
+          selling_price
+        FROM
+          product
+        WHERE
+          product_id=%s
+        """
+      price = tx.find_one(sql, [product_id])
+    
+    return jsonify(price)

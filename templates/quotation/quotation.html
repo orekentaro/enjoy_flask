@@ -1,6 +1,12 @@
 {% extends "base.html" %}
 
 {% block css %}
+<style>
+  .hidden{
+    display:none;
+  }
+</style>
+  
 <!-- Daterange picker -->
 <link rel="stylesheet" href="{{url_for('static', filename='admin_lte3/plugins/daterangepicker/daterangepicker.css') }}">
 {% endblock %}
@@ -74,87 +80,143 @@
                   <tbody>
                     <tr>
                       <th scope="row">
-                        <select name="" id="">
+                        <select name="product1" id="product1">
+                          <option value="" hidden>商品を選んでください</option>
                           {% for product in products %}
                             <option value="{{ product['product_id'] }}">{{ product['name'] }}</option>
                           {% endfor %}
                         </select>
                       </th>
                       <td>
-                        <select name="" id="">
+                        <select name="" id="product_count1" class="hidden">
+                          <option value="" hidden>個数を選択してください</option>
                           {% for i in range(99) %}
                             <option value="{{i + 1}}">{{ i+1 }}</option>
                           {% endfor %}
                         </select>
                       </td>
-                      <td></td>
-                      <td></td>
+                      <td>
+                        <div class="col-sm-8 hidden" id="product_price1_tag" data-target-input="nearest">
+                          <input value="" id="product_price1" name="product_price1" type="text" class="form-control">
+                        </div>
+                      </td>
+                      <td>
+                        <div class="col-sm-8 hidden" id="product_total_price1_tag" data-target-input="nearest">
+                          <input value="" id="product_total_price1" name="product_total_price1" type="text" class="form-control">
+                        </div>
+                      </td>
                     </tr>
                     <tr>
-                      <th scope="row"></th>
-                      <td></td>
-                      <td></td>
-                      <td></td>
+                      <th scope="row">
+                        <select name="product2" id="product2">
+                          <option value="" hidden>商品を選んでください</option>
+                          {% for product in products %}
+                            <option value="{{ product['product_id'] }}">{{ product['name'] }}</option>
+                          {% endfor %}
+                        </select>
+                      </th>
+                      <td>
+                        <select name="" id="product_count2" class="hidden">
+                          <option value="" hidden>個数を選択してください</option>
+                          {% for i in range(99) %}
+                            <option value="{{i + 1}}">{{ i+1 }}</option>
+                          {% endfor %}
+                        </select>
+                      </td>
+                      <td>
+                        <div class="col-sm-8 hidden" id="product_price2_tag" data-target-input="nearest">
+                          <input value="" id="product_price2" name="product_price2" type="text" class="form-control">
+                        </div>
+                      </td>
+                      <td>
+                        <div class="col-sm-8 hidden" id="product_total_price2_tag" data-target-input="nearest">
+                          <input value="" id="product_total_price2" name="product_total_price2" type="text" class="form-control">
+                        </div>
+                      </td>
                     </tr>
                     <tr>
-                      <th scope="row"></th>
-                      <td></td>
-                      <td></td>
-                      <td></td>
+                      <th scope="row">
+                        <select name="product3" id="product3">
+                          <option value="" hidden>商品を選んでください</option>
+                          {% for product in products %}
+                            <option value="{{ product['product_id'] }}">{{ product['name'] }}</option>
+                          {% endfor %}
+                        </select>
+                      </th>
+                      <td>
+                        <select name="" id="product_count3" class="hidden">
+                          <option value="" hidden>個数を選択してください</option>
+                          {% for i in range(99) %}
+                            <option value="{{i + 1}}">{{ i+1 }}</option>
+                          {% endfor %}
+                        </select>
+                      </td>
+                      <td>
+                        <div class="col-sm-8 hidden" id="product_price3_tag" data-target-input="nearest">
+                          <input value="" id="product_price3" name="product_price3" type="text" class="form-control">
+                        </div>
+                      </td>
+                      <td>
+                        <div class="col-sm-8 hidden" id="product_total_price3_tag" data-target-input="nearest">
+                          <input value="" id="product_total_price3" name="product_total_price3" type="text" class="form-control">
+                        </div>
+                      </td>
                     </tr>
                     <tr>
-                      <th scope="row"></th>
-                      <td></td>
-                      <td></td>
-                      <td></td>
+                      <th scope="row">
+                        <select name="product4" id="product4">
+                          <option value="" hidden>商品を選んでください</option>
+                          {% for product in products %}
+                            <option value="{{ product['product_id'] }}">{{ product['name'] }}</option>
+                          {% endfor %}
+                        </select>
+                      </th>
+                      <td>
+                        <select name="" id="product_count4" class="hidden">
+                          <option value="" hidden>個数を選択してください</option>
+                          {% for i in range(99) %}
+                            <option value="{{i + 1}}">{{ i+1 }}</option>
+                          {% endfor %}
+                        </select>
+                      </td>
+                      <td>
+                        <div class="col-sm-8 hidden" id="product_price4_tag" data-target-input="nearest">
+                          <input value="" id="product_price4" name="product_price4" type="text" class="form-control">
+                        </div>
+                      </td>
+                      <td>
+                        <div class="col-sm-8 hidden" id="product_total_price4_tag" data-target-input="nearest">
+                          <input value="" id="product_total_price4" name="product_total_price4" type="text" class="form-control">
+                        </div>
+                      </td>
                     </tr>
                     <tr>
-                      <th scope="row"></th>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                    </tr>
-                    <tr>
-                      <th scope="row"></th>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                    </tr>
-                    <tr>
-                      <th scope="row"></th>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                    </tr>
-                    <tr>
-                      <th scope="row"></th>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                    </tr>
-                    <tr>
-                      <th scope="row"></th>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                    </tr>
-                    <tr>
-                      <th scope="row"></th>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                    </tr>
-                    <tr>
-                      <th scope="row"></th>
-                      <td></td>
-                      <td></td>
-                      <td></td>
-                    </tr>
-                    <tr>
-                      <th scope="row"></th>
-                      <td></td>
-                      <td></td>
-                      <td></td>
+                      <th scope="row">
+                        <select name="product5" id="product5">
+                          <option value="" hidden>商品を選んでください</option>
+                          {% for product in products %}
+                            <option value="{{ product['product_id'] }}">{{ product['name'] }}</option>
+                          {% endfor %}
+                        </select>
+                      </th>
+                      <td>
+                        <select name="" id="product_count5" class="hidden">
+                          <option value="" hidden>個数を選択してください</option>
+                          {% for i in range(99) %}
+                            <option value="{{i + 1}}">{{ i+1 }}</option>
+                          {% endfor %}
+                        </select>
+                      </td>
+                      <td>
+                        <div class="col-sm-8 hidden" id="product_price5_tag" data-target-input="nearest">
+                          <input value="" id="product_price5" name="product_price5" type="text" class="form-control">
+                        </div>
+                      </td>
+                      <td>
+                        <div class="col-sm-8 hidden" id="product_total_price5_tag" data-target-input="nearest">
+                          <input value="" id="product_total_price5" name="product_total_price5" type="text" class="form-control">
+                        </div>
+                      </td>
                     </tr>
                   </tbody>
                 </table>
@@ -216,5 +278,134 @@
     locale: 'ja',
     format: 'YYYY/MM/DD'
   });
+
+  var prrice_list = []
+
+  $('#product1').change(function(){
+    $('#product_count1').removeClass("hidden")
+    $('#product_price1_tag').removeClass("hidden")
+    $.ajax({
+      data:{
+        product_id:$('#product1').val()
+      },
+      type:'POST',
+      url:'/quotation/get_price'
+    }).done( (data) => {
+      $('#product_price1').val(data[0])
+    })
+    // Ajaxリクエストが失敗した時発動
+    .fail( (data) => {
+      console.log("erorr");
+      console.log(data);
+    })
+  })
+  $('#product_count1').change(function(){
+    $('#product_total_price1_tag').removeClass("hidden")
+    var total_price = $(this).val() * $('#product_price1').val()
+    $('#product_total_price1').val(total_price)
+  })
+
+
+  $('#product2').change(function(){
+    $('#product_count2').removeClass("hidden")
+    $('#product_price2_tag').removeClass("hidden")
+    $.ajax({
+      data:{
+        product_id:$('#product2').val()
+      },
+      type:'POST',
+      url:'/quotation/get_price'
+    }).done( (data) => {
+      $('#product_price2').val(data[0])
+    })
+    // Ajaxリクエストが失敗した時発動
+    .fail( (data) => {
+      console.log("erorr");
+      console.log(data);
+    })
+  })
+  $('#product_count2').change(function(){
+    $('#product_total_price2_tag').removeClass("hidden")
+    var total_price = $(this).val() * $('#product_price2').val()
+    $('#product_total_price2').val(total_price)
+  })
+
+
+  $('#product3').change(function(){
+    $('#product_count3').removeClass("hidden")
+    $('#product_price3_tag').removeClass("hidden")
+    $.ajax({
+      data:{
+        product_id:$('#product3').val()
+      },
+      type:'POST',
+      url:'/quotation/get_price'
+    }).done( (data) => {
+      $('#product_price3').val(data[0])
+    })
+    // Ajaxリクエストが失敗した時発動
+    .fail( (data) => {
+      console.log("erorr");
+      console.log(data);
+    })
+  })
+  $('#product_count3').change(function(){
+    $('#product_total_price3_tag').removeClass("hidden")
+    var total_price = $(this).val() * $('#product_price3').val()
+    $('#product_total_price3').val(total_price)
+  })
+
+
+  $('#product4').change(function(){
+    $('#product_count4').removeClass("hidden")
+    $('#product_price4_tag').removeClass("hidden")
+    $.ajax({
+      data:{
+        product_id:$('#product4').val()
+      },
+      type:'POST',
+      url:'/quotation/get_price'
+    }).done( (data) => {
+      $('#product_price4').val(data[0])
+    })
+    // Ajaxリクエストが失敗した時発動
+    .fail( (data) => {
+      console.log("erorr");
+      console.log(data);
+    })
+  })
+  $('#product_count4').change(function(){
+    $('#product_total_price4_tag').removeClass("hidden")
+    var total_price = $(this).val() * $('#product_price4').val()
+    $('#product_total_price4').val(total_price)
+  })
+
+
+  $('#product5').change(function(){
+    $('#product_count5').removeClass("hidden")
+    $('#product_price5_tag').removeClass("hidden")
+    $.ajax({
+      data:{
+        product_id:$('#product5').val()
+      },
+      type:'POST',
+      url:'/quotation/get_price'
+    }).done( (data) => {
+      $('#product_price5').val(data[0])
+    })
+    // Ajaxリクエストが失敗した時発動
+    .fail( (data) => {
+      console.log("erorr");
+      console.log(data);
+    })
+  })
+  $('#product_count5').change(function(){
+    $('#product_total_price5_tag').removeClass("hidden")
+    var total_price = $(this).val() * $('#product_price5').val()
+    $('#product_total_price5').val(total_price)
+  })
+
+
+
 </script>
 {% endblock %}
